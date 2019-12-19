@@ -1,0 +1,47 @@
+Добро пожаловать в {{ title }}. <br>
+Тут собрано {{ books|length }} книг из моей личной коллекции.
+
+<table border="1">
+    {% for book in books|dictsort:"publishing.publishing_name" %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author.full_name }}</td>
+        <td>{{ book.copy_count }}</td>
+        <td>{{ book.leasing_count }}</td>
+        <td>
+            <ul>
+            {% for friend in book.friends.all %}
+                <li><a href="{{ friend.get_url }}">{{ friend.full_name }}</a></li>
+            {% endfor %}
+            </ul>
+        </td>
+        <td>
+            <form action="/leasing/leasing_book/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <select name="select" size="1">
+                    {% for friend in friends.all %}
+                    {% if friend not in book.friends.all %}
+                    <option value="{{friend.id}}">{{ friend.full_name }}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+                <input type="hidden" name="id" value="{{book.id}}" />
+                <input type="submit" value="Арендовать" />
+            </form>
+            {% if book.friends.all %}
+            <form action="/leasing/unleasing_book/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <select name="select_unleasing" size="1">
+                    {% for friend in book.friends.all %}
+                    <option value="{{friend.id}}">{{ friend.full_name }}</option>
+                    {% endfor %}
+                </select>
+                <input type="hidden" name="id" value="{{book.id}}" />
+                <input type="submit" value="Снять с аренды" />
+            </form>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
