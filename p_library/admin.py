@@ -12,7 +12,7 @@ class BookAdmin(admin.ModelAdmin):
     # author_full_name.admin_order_field = 'publishing'
 
     list_display = ('title', 'publishing', 'author_full_name', 'copy_count')
-    fields = ('ISBN', 'title', 'description', 'year_release', 'author', 'publishing', 'copy_count', 'leasing_count', 'friends', 'price')
+    fields = ('ISBN', 'title', 'description', 'year_release', 'author', 'publishing', 'copy_count', 'leasing_count', 'friends', 'price', 'avatar')
 
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):

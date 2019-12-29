@@ -1,10 +1,10 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
- <meta charset="UTF-8">  
- <title>Create multiple authors</title>  
-</head>  
-<body>  
+{% extends 'base_p_library.html' %}
+
+{% block title %}
+	Create multiple authors  
+{% endblock %}
+
+{% block content %}
 <form method="post">  
 	{{ author_formset.management_form }}
 	{% csrf_token %}  
@@ -14,5 +14,4 @@
 	{% endfor %}
     <input type="submit" value="Сохранить"/>  
 </form>  
-</body>  
-</html>
+{% endblock %}

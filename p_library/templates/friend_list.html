@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Список друзей</title>
-</head>
-<body>
-	<ul>
-		{% for friend in object_list %}
-		    <li>{{ friend.full_name }}</li>
-		{% endfor %}
-	</ul>
-</body>
-</html>
+{% extends 'base_p_library.html' %}
+
+{% block title %}
+Список друзей
+{% endblock %}
+
+{% block content %}
+<ul class="list-group">
+	{% for friend in object_list %}
+	<li class="list-group-item">{{ friend.full_name }}</li>
+	{% endfor %}
+</ul>
+{% endblock %}
