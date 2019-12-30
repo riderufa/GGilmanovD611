@@ -136,10 +136,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
 
 STATIC_URL = '/asset-v1:SkillFactory+PWS-1+5JUN2019+type@asset+block@/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
