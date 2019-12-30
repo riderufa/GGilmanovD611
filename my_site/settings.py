@@ -21,16 +21,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
-# SECRET_KEY = 'uz$dg@0yh4%s8*1q#*@^3j&u%b@%ybu3)8nhxlb6fvjy_a=dwn'
+# SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'uz$dg@0yh4%s8*1q#*@^3j&u%b@%ybu3)8nhxlb6fvjy_a=dwn'
 # SECRET_KEY = 'dhsfgjsfhjdhgjsfasesfgjghkfhgj'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['fast-reaches-54521.herokuapp.com']
-# ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['fast-reaches-54521.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -81,14 +81,14 @@ WSGI_APPLICATION = 'my_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
+# DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 # 'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
 
@@ -128,7 +128,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-# STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 
@@ -136,18 +135,24 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
-STATIC_URL = '/static/'
 
+
+
+
+STATIC_URL = '/asset-v1:SkillFactory+PWS-1+5JUN2019+type@asset+block@/'
+
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
 
+# STATIC_URL = '/static/'
+
 # STATIC_URL = '/asset-v1:SkillFactory+PWS-1+5JUN2019+type@asset+block@/'
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-
